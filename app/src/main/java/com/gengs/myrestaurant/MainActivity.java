@@ -1,5 +1,6 @@
 package com.gengs.myrestaurant;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -77,14 +78,22 @@ public class MainActivity extends AppCompatActivity {
                     tot += hasil;
 
                 }
+
                 if (nama.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Anda Belum Pesan",Toast.LENGTH_SHORT).show();
                     clearTextPesanan();
                 }else {
-                    textNama.setText(nama);
-                    textJumlah.setText(jumlah);
-                    textHarga.setText(harga);
-                    textTotal.setText(String.valueOf(tot));
+                    Intent intent = new Intent(getApplicationContext(),PesananActivity.class);
+                    intent.putExtra("nama",nama);
+                    intent.putExtra("jumlah",jumlah);
+                    intent.putExtra("harga",harga);
+                    intent.putExtra("total",String.valueOf(tot));
+
+                    startActivity(intent);
+//                    textNama.setText(nama);
+//                    textJumlah.setText(jumlah);
+//                    textHarga.setText(harga);
+//                    textTotal.setText(String.valueOf(tot));
                 }
             }
         });
