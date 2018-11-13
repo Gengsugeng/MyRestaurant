@@ -24,6 +24,5 @@ public class PesananActivity extends AppCompatActivity {
         textJumlah.setText(intent.getStringExtra("jumlah"));
         textHarga.setText(intent.getStringExtra("harga"));
         textTotal.setText("Rp."+intent.getStringExtra("total"));
-
     }
 }
